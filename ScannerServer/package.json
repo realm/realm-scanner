@@ -1,0 +1,14 @@
+{
+  "name": "imageScanDemo",
+  "version": "0.0.1",
+  "description": "Use the global notifier feature to monitor when images pending scanning by Google OCR are submitted from the app",
+  "main": "index.js",
+  "author": "Realm",
+  "dependencies": {
+    "realm": "file:realm-1.0.0-BETA-2.7-professional.tgz",
+    "sync-request": "^3.0.1",
+    "wildcard": "^1.1.2",
+    "watson-developer-cloud": "^2.11.0",
+    "mkdirp": "0.5.1 "
+  }
+}
