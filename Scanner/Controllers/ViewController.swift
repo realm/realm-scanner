@@ -32,7 +32,7 @@ enum Status: String {
 class ViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var realm: Realm?
-    var currentScan: LabelScan?
+    var currentScan: Scan?
 
     @IBOutlet var resetButton: UIBarButtonItem?
     var headerView: PhotoButtonView?
@@ -182,7 +182,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             }
         }
         
-        currentScan = LabelScan()
+        currentScan = Scan()
     }
     
     func saveScan() {
@@ -194,7 +194,6 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         
         try! realm?.write {
             realm?.add(currentScan!)
-            currentScan?.result = LabelScanResult()
             currentScan?.status = Status.Uploading.rawValue
         }
         
@@ -214,13 +213,13 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         switch currentStatus {
         case .ClassificationResultReady, .TextScanResultReady, .FaceDetectionResultReady:
             self.result =
-                    [self.currentScan?.result?.classificationResult, self.currentScan?.result?.faceDetectionResult, self.currentScan?.result?.textScanResult]
+                    [self.currentScan?.classificationResult, self.currentScan?.faceDetectionResult, self.currentScan?.textScanResult]
                         .flatMap({$0}).joined(separator:"\n\n")
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             
-            if (self.currentScan?.result?.textScanResult != nil &&
-                self.currentScan?.result?.classificationResult != nil &&
-                self.currentScan?.result?.faceDetectionResult != nil) {
+            if (self.currentScan?.textScanResult != nil &&
+                self.currentScan?.classificationResult != nil &&
+                self.currentScan?.faceDetectionResult != nil) {
                 self.updateResetButton()
                 
                 try! self.currentScan?.realm?.write {

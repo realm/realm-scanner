@@ -1,14 +1,11 @@
 {
-  "name": "imageScanDemo",
+  "name": "Scanner",
   "version": "0.0.1",
-  "description": "Use the global notifier feature to monitor when images pending scanning by Google OCR are submitted from the app",
+  "description": "Use Realm Object Server's event-handling capabilities to react to uploaded images and send them to Watson for image recognition.",
   "main": "index.js",
   "author": "Realm",
   "dependencies": {
-    "realm": "file:realm-1.0.0-BETA-2.7-professional.tgz",
-    "sync-request": "^3.0.1",
-    "wildcard": "^1.1.2",
-    "watson-developer-cloud": "^2.11.0",
-    "mkdirp": "0.5.1 "
+    "realm": "file:realm-professional.tgz",
+    "watson-developer-cloud": "^2.11.0"
   }
 }

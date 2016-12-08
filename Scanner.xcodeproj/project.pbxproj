@@ -10,8 +10,7 @@
 		22CDF13B1DF8CE5500BD6012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF1251DF8CE5500BD6012 /* AppDelegate.swift */; };
 		22CDF13C1DF8CE5500BD6012 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF1271DF8CE5500BD6012 /* ViewController.swift */; };
 		22CDF13D1DF8CE5500BD6012 /* UIImage+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF1291DF8CE5500BD6012 /* UIImage+Encoding.swift */; };
-		22CDF13F1DF8CE5500BD6012 /* LabelScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF12C1DF8CE5500BD6012 /* LabelScan.swift */; };
-		22CDF1401DF8CE5500BD6012 /* LabelScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF12D1DF8CE5500BD6012 /* LabelScanResult.swift */; };
+		22CDF13F1DF8CE5500BD6012 /* Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF12C1DF8CE5500BD6012 /* Scan.swift */; };
 		22CDF1411DF8CE5500BD6012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CDF12F1DF8CE5500BD6012 /* Assets.xcassets */; };
 		22CDF1421DF8CE5500BD6012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22CDF1301DF8CE5500BD6012 /* LaunchScreen.storyboard */; };
 		22CDF1431DF8CE5500BD6012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22CDF1321DF8CE5500BD6012 /* Main.storyboard */; };
@@ -30,8 +29,7 @@
 		22CDF1271DF8CE5500BD6012 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22CDF1291DF8CE5500BD6012 /* UIImage+Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Encoding.swift"; sourceTree = "<group>"; };
 		22CDF12A1DF8CE5500BD6012 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22CDF12C1DF8CE5500BD6012 /* LabelScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScan.swift; sourceTree = "<group>"; };
-		22CDF12D1DF8CE5500BD6012 /* LabelScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelScanResult.swift; sourceTree = "<group>"; };
+		22CDF12C1DF8CE5500BD6012 /* Scan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scan.swift; sourceTree = "<group>"; };
 		22CDF12F1DF8CE5500BD6012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22CDF1311DF8CE5500BD6012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22CDF1331DF8CE5500BD6012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,8 +92,7 @@
 		22CDF12B1DF8CE5500BD6012 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				22CDF12C1DF8CE5500BD6012 /* LabelScan.swift */,
-				22CDF12D1DF8CE5500BD6012 /* LabelScanResult.swift */,
+				22CDF12C1DF8CE5500BD6012 /* Scan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,8 +307,7 @@
 				22CDF13B1DF8CE5500BD6012 /* AppDelegate.swift in Sources */,
 				22CDF1471DF8CE5500BD6012 /* PhotoButtonView.swift in Sources */,
 				22CDF1461DF8CE5500BD6012 /* LabelResultsCellTableViewCell.swift in Sources */,
-				22CDF1401DF8CE5500BD6012 /* LabelScanResult.swift in Sources */,
-				22CDF13F1DF8CE5500BD6012 /* LabelScan.swift in Sources */,
+				22CDF13F1DF8CE5500BD6012 /* Scan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
