@@ -21,6 +21,12 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 
+## Demo related
+node_modules/
+realm-object-server/
+realm-professional.tgz
+subject.jpeg
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
