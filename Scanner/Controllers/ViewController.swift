@@ -68,7 +68,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
                 
                 // Open Realm
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://\(localIPAddress):9080/~/textscanner")!)
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://\(localIPAddress):9080/~/scanner")!)
                 )
                 self.realm = try! Realm(configuration: configuration)
                 
