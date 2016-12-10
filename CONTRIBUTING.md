@@ -2,7 +2,7 @@
 
 ## Filing Issues
 
-Whether you find a bug, typo or an API call that could be clarified, please [file an issue](https://github.com/realm/rmp-textscanner-ios/issues) on our GitHub repository.
+Whether you find a bug, typo or an API call that could be clarified, please [file an issue](https://github.com/realm-demos/realm-scanner/issues) on our GitHub repository.
 
 When filing an issue, please provide as much of the following information as possible in order to help us fix it:
 
@@ -17,7 +17,7 @@ If you'd like to send us sensitive sample code to help troubleshoot your issue, 
 
 ## Contributing Enhancements
 
-We love contributions to Realm! If you'd like to contribute code, documentation, or any other improvements, please [file a Pull Request](https://github.com/realm/rmp-textscanner-ios/pulls) on our GitHub repository. Make sure to accept our [CLA](#CLA)!
+We love contributions to Realm! If you'd like to contribute code, documentation, or any other improvements, please [file a Pull Request](https://github.com/realm-demos/realm-scanner/pulls) on our GitHub repository. Make sure to accept our [CLA](#CLA)!
 
 ### CLA
 
