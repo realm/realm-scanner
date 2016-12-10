@@ -1,19 +1,25 @@
-# Scanner Demo
+# Scanner Demo app
+
+Scanner is an app that demonstrates the event handling capabilities of the Realm Mobile Platform. Combining the deep machine learning capabilities of IBM's Bluemix technology, it is able to take any photograph, and return a textual analysis of the contents in that photograph.
 
 ## Run The Demo
 
 ### Dependencies
 
 * [Realm Mobile Platform](https://realm.io/docs/realm-mobile-platform/get-started/)
-* [CocoaPods](https://cocoapods.org)
+* [CocoaPods](https://cocoapods.org) (iOS Only)
 * Node.js
 
 ### Steps To Run
 
-#### 1. Setting up the Scanner iOS app
+#### 1. Setting up the Mobile App
 
+##### iOS
 1. Navigate to the Scanner directory in Terminal and enter `pod install` to install Realm into the Scanner app.
 2. Open the `Scanner.xcworkspace` file in Xcode.
+
+##### Android
+1. In the command line, go to the `Android` directory and run `./gradlew installDebug`
 
 #### 2. Setting up the Realm Mobile Platform
 
@@ -24,13 +30,13 @@
 
 #### 3. Running the Scanner Global Listener
 
-1. Open `ScannerServer/index.js` and replace the `REALM_ACCESS_TOKEN` value with the access token you previously noted. 
-2. Navigate to the `ScannerServer` directory in Terminal, and run `npm install` to unpackage the Global Listener.
+1. Open `Server/index.js` and replace the `REALM_ACCESS_TOKEN` value with the access token you previously noted. 
+2. Navigate to the `Server` directory in Terminal, and run `npm install` to unpackage the Global Listener.
 3. Run `node .` to start the Global Listener. The Mobile Platform Terminal window should print an authorized connection.
 
 #### 4. Running the Scanner app
 
-1. Build and run the Scanner app from Xcode on the Mac that is currently running the Mobile Platform and the Global Listener processes.
+1. Build and run the Scanner app from Xcode / Android Studio on the Mac that is currently running the Mobile Platform and the Global Listener processes.
 2. Tap the camera icon to take a photo of some text.
 3. The app will then start uploading the image, and will return the results when it is complete.
 
