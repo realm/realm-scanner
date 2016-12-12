@@ -18,7 +18,7 @@ var SERVER_URL = 'realm://127.0.0.1:9080';
 
 // The path used by the global notifier to listen for changes across all
 // Realms that match.
-var NOTIFIER_PATH = ".*/textscanner";
+var NOTIFIER_PATH = ".*/scanner";
 
 /*
 Common status text strings
