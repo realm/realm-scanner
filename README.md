@@ -6,7 +6,7 @@ Scanner is an app that demonstrates the event handling capabilities of the Realm
 
 ### Dependencies
 
-* [Realm Mobile Platform](https://realm.io/docs/realm-mobile-platform/get-started/)
+* [Realm Mobile Platform Professional Edition](https://realm.io/pricing/realm-professional-edition/)
 * [CocoaPods](https://cocoapods.org) (iOS Only)
 * Node.js
 
@@ -25,7 +25,7 @@ For a fully in-depth tutorial on running the Scanner app along with the Realm Ob
 
 #### 2. Setting up the Realm Mobile Platform
 
-1. Download the latest copy of [Realm Mobile Platform](https://realm.io/docs/realm-mobile-platform/get-started/) from the Realm website.
+1. Download the Professional Edition of the [Realm Mobile Platform](https://realm.io/pricing/realm-professional-edition/) from the Realm website.
 2. Start the Mobile Platform by running the `start-object-server.command`. Take note of the admin access token that is displayed.
 3. If your web browser doesn't open automatically, open it, and navigate to 'http://localhost:9080'.
 4. Register a user account with the username `scanner@realm.io` and the password `password`.
