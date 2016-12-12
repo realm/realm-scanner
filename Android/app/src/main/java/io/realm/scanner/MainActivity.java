@@ -57,7 +57,7 @@ import io.realm.SyncUser;
 import io.realm.scanner.model.Scan;
 
 public class MainActivity extends AppCompatActivity  implements RealmChangeListener<Scan> {
-    private static final String REALM_URL = "realm://" + BuildConfig.OBJECT_SERVER_IP + ":9080/~/textscanner";
+    private static final String REALM_URL = "realm://" + BuildConfig.OBJECT_SERVER_IP + ":9080/~/scanner";
     private static final String AUTH_URL = "http://" + BuildConfig.OBJECT_SERVER_IP + ":9080/auth";
     private static final String ID = "scanner@realm.io";
     private static final String PASSWORD = "password";
