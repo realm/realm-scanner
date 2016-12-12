@@ -12,7 +12,7 @@ Scanner is an app that demonstrates the event handling capabilities of the Realm
 
 ### Steps To Run
 
-For a fully in-depth tutorial on running the Scanner app along with the Realm Object Server, please see [the Scanner tutorial](https://realm.io/docs/realm-mobile-platform/textscanner/) on the Realm website.
+For a fully in-depth tutorial on running the Scanner app along with the Realm Object Server, please see [the Scanner tutorial](https://realm.io/docs/realm-mobile-platform/scanner/) on the Realm website.
 
 #### 1. Setting up the Mobile App
 
