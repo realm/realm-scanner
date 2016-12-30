@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Scanner</string>
+    <string name="REQUEST_PERMISSION_FAILED">Requesting android.permission.WRITE_EXTERNAL_STORAGE failed.</string>
 </resources>

@@ -20,6 +20,7 @@ package io.realm.scanner;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,6 +30,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -37,6 +39,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -56,7 +59,7 @@ import io.realm.SyncCredentials;
 import io.realm.SyncUser;
 import io.realm.scanner.model.Scan;
 
-public class MainActivity extends AppCompatActivity  implements RealmChangeListener<Scan> {
+public class MainActivity extends AppCompatActivity implements RealmChangeListener<Scan> {
     private static final String REALM_URL = "realm://" + BuildConfig.OBJECT_SERVER_IP + ":9080/~/scanner";
     private static final String AUTH_URL = "http://" + BuildConfig.OBJECT_SERVER_IP + ":9080/auth";
     private static final String ID = "scanner@realm.io";
@@ -67,6 +70,8 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
 
     private static final int REQUEST_SELECT_PHOTO = PRIME_NUMBER_1000th;
     private static final int REQUEST_IMAGE_CAPTURE = REQUEST_SELECT_PHOTO + 1;
+    private static final int REQUEST_PERMISSION_WRITE = PRIME_NUMBER_1000th;
+    private static final String ANDROID_PERMISSION_WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";
 
     private Realm realm;
     private Scan currentScan;
@@ -106,7 +111,7 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
 
         showPanel(Panel.CAPTURE);
 
-        copyTestAssetImage();
+        checkPermissionAndCopyTestAssetImage();
 
         final SyncCredentials syncCredentials = SyncCredentials.usernamePassword(ID, PASSWORD, false);
         SyncUser.loginAsync(syncCredentials, AUTH_URL, new SyncUser.Callback() {
@@ -125,19 +130,22 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
         });
     }
 
-    private void copyTestAssetImage() {
-        String imagePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + TEST_IMAGE;
+    private void checkPermissionAndCopyTestAssetImage() {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+            if (checkSelfPermission(ANDROID_PERMISSION_WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                copyTestAssetIfNeeded();
+            } else {
+                requestPermissions(new String[]{ANDROID_PERMISSION_WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_WRITE);
+            }
+        } else {
+            copyTestAssetIfNeeded();
+        }
+    }
 
+    private void copyTestAssetIfNeeded() {
+        String imagePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + TEST_IMAGE;
         if (new File(imagePath).exists()) {
             return;
-        }
-
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
-            String[] permissions = {
-                    "android.permission.WRITE_EXTERNAL_STORAGE"
-            };
-            int requestCode = 200;
-            requestPermissions(permissions, requestCode);
         }
 
         AssetManager assetManager = getAssets();
@@ -146,15 +154,15 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
             OutputStream out = new FileOutputStream(imagePath);
             byte[] buffer = new byte[PRIME_NUMBER_1000th];
             int read;
-            while((read = in.read(buffer)) != -1){
+            while ((read = in.read(buffer)) != -1) {
                 out.write(buffer, 0, read);
             }
             in.close();
             out.flush();
             out.close();
 
-            MediaScannerConnection.scanFile(this, new String[] { imagePath }, new String[] { "image/jpeg" }, null);
-        } catch(IOException e) {
+            MediaScannerConnection.scanFile(this, new String[]{imagePath}, new String[]{"image/jpeg"}, null);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -294,7 +302,7 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
                             imageData = byteBuffer.toByteArray();
                         }
                         uploadImage(imageData);
-                    } catch(FileNotFoundException e) {
+                    } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -343,14 +351,14 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
 
     private void showCommandsDialog() {
         final CharSequence[] items = {
-                 "Take with Camera",
+                "Take with Camera",
                 "Choose from Library"
         };
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                switch(i) {
+                switch (i) {
                     case 0:
                         dispatchTakePicture();
                         break;
@@ -421,11 +429,23 @@ public class MainActivity extends AppCompatActivity  implements RealmChangeListe
         invalidateOptionsMenu();
     }
 
-    enum Panel {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PERMISSION_WRITE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                copyTestAssetIfNeeded();
+            } else {
+                Toast.makeText(this, R.string.REQUEST_PERMISSION_FAILED, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private enum Panel {
         CAPTURE, SCANNED, PROGRESS
     }
 
-    class StatusLiteral {
+    private class StatusLiteral {
         public static final String UPLOADING = "Uploading";
         public static final String FAILED = "Failed";
         public static final String CLASSIFICATION_RESULT_READY = "ClassificationResultReady";
