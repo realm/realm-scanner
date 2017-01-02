@@ -17,6 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="io.realm.scanner.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+
+        </provider>
+
         <activity android:name="io.realm.scanner.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

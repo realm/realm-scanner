@@ -3,12 +3,12 @@ apply plugin: 'realm-android'
 
 android {
     // We do not use FileProvider for simplicity. Do not upgrade this up to 25.
-    compileSdkVersion 23
+    compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "io.realm.scanner"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
     }
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
 }
 
 realm {
