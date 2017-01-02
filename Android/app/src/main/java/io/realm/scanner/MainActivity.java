@@ -374,9 +374,8 @@ public class MainActivity extends AppCompatActivity implements RealmChangeListen
 
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp;
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = new File(storageDir, imageFileName + ".jpg");
+        File image = new File(storageDir, "JPEG_" + timeStamp + ".jpg");
         return image;
     }
 
