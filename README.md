@@ -1,14 +1,24 @@
-# Scanner Demo app
+# Realm Scanner
+> A Scanning App that uses IBM's Watson to perform dynamic analysis on any photos it is given.
+
+![Realm Scanner](screenshot.jpg)
 
 Scanner is an app that demonstrates the event handling capabilities of the Realm Mobile Platform. Combining the deep machine learning capabilities of IBM's Bluemix technology, it is able to take any photograph, and return a textual analysis of the contents in that photograph.
 
-## Run The Demo
+# Features
+- [x] Powered by the Realm Mobile Platform Professional Edition.
+- [x] Performs subject analysis on any photos loaded into it.
+- [x] Uses RMP as a transport mechanism for sending the data to Watson.
+
+# Run The Demo
 
 ### Dependencies
 
 * [Realm Mobile Platform Professional Edition](https://realm.io/pricing/realm-professional-edition/)
-* [CocoaPods](https://cocoapods.org) (iOS Only)
 * Node.js
+
+#### iOS
+* CocoaPods
 
 ### Steps To Run
 
@@ -42,3 +52,12 @@ For a fully in-depth tutorial on running the Scanner app along with the Realm Ob
 2. Tap the camera icon to take a photo of some text.
 3. The app will then start uploading the image, and will return the results when it is complete.
 
+# Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details!
+
+This project adheres to the [Contributor Covenant Code of Conduct](https://realm.io/conduct/). By participating, you are expected to uphold this code. Please report unacceptable behavior to [info@realm.io](mailto:info@realm.io).
+
+# License
+
+Distributed under the Apache license. See ``LICENSE`` for more information.
