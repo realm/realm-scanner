@@ -20,6 +20,9 @@ var SERVER_URL = 'realm://127.0.0.1:9080';
 // Realms that match.
 var NOTIFIER_PATH = ".*/scanner";
 
+//Insert the Realm access token which came with your download of Realm Mobile Platform Professional Edition
+Realm.Sync.setAccessToken('INSERT_YOUR_REALM_ACCESS_TOKEN');
+
 /*
 Common status text strings
 
