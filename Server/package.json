@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "Realm",
   "dependencies": {
-    "realm": "file:realm-professional.tgz",
+    "realm": "^2.0.0",
     "watson-developer-cloud": "^2.11.0"
   }
 }
