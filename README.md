@@ -16,9 +16,11 @@ Scanner is an app that demonstrates the event handling capabilities of the Realm
 
 * [Realm Mobile Platform Professional Edition](https://realm.io/pricing/realm-professional-edition/)
 * Node.js
+* [IBM Bluemix Account](https://realm.io/docs/tutorials/scanner/#prerequisites)
 
 #### iOS
 * CocoaPods
+* Xcode 8.1 or higher
 
 ### Steps To Run
 
@@ -42,9 +44,9 @@ For a fully in-depth tutorial on running the Scanner app along with the Realm Ob
 
 #### 3. Running the Scanner Global Listener
 
-1. Open `Server/index.js` and replace the `REALM_ACCESS_TOKEN` value with the access token you previously copied.
+1. Open `Server/index.js` and replace the `REALM_ADMIN_TOKEN`, `REALM_ACCESS_TOKEN`, and `BLUEMIX_API_KEY` values with the token and key values that you've previously acquired.
 2. Navigate to the `Server` directory in Terminal, and run `npm install` to install the Global Listener and the required supporting modules for the IBM Bluemix service.
-3. Run `node .` to start the Global Listener. The Mobile Platform Terminal window should print an authorized connection.
+3. Run `node index.js` to start the Global Listener. The Mobile Platform Terminal window should print an authorized connection.
 
 #### 4. Running the Scanner app
 
