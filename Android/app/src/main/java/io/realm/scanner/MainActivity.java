@@ -115,9 +115,9 @@ public class MainActivity extends AppCompatActivity implements RealmChangeListen
         checkPermissionAndCopyTestAssetImage();
 
         final SyncCredentials syncCredentials = SyncCredentials.usernamePassword(ID, PASSWORD, false);
-        SyncUser.loginAsync(syncCredentials, AUTH_URL, new SyncUser.Callback() {
+        SyncUser.loginAsync(syncCredentials, AUTH_URL, new SyncUser.Callback<SyncUser>() {
             @Override
-            public void onSuccess(SyncUser user) {
+            public void onSuccess(@NonNull SyncUser user) {
                 final SyncConfiguration syncConfiguration = new SyncConfiguration.Builder(user, REALM_URL).build();
                 Realm.setDefaultConfiguration(syncConfiguration);
                 realm = Realm.getDefaultInstance();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements RealmChangeListen
             }
 
             @Override
-            public void onError(ObjectServerError error) {
+            public void onError(@NonNull ObjectServerError error) {
             }
         });
     }
@@ -209,14 +209,14 @@ public class MainActivity extends AppCompatActivity implements RealmChangeListen
             setTitle(R.string.app_name);
             cleanUpCurrentLabelScanIfNeeded();
             showPanel(Panel.CAPTURE);
-            invalidateOptionsMenu();
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void cleanUpCurrentLabelScanIfNeeded() {
         if (currentScan != null) {
-            currentScan.removeChangeListeners();
+            currentScan.removeAllChangeListeners();
             realm.beginTransaction();
             currentScan.deleteFromRealm();
             realm.commitTransaction();

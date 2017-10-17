@@ -18,7 +18,7 @@ var SERVER_URL = 'realm://127.0.0.1:9080';
 
 // The path used by the global notifier to listen for changes across all
 // Realms that match.
-var NOTIFIER_PATH = ".*/scanner";
+var NOTIFIER_PATH = "^/.*/scanner$";
 
 //Insert the Realm access token which came with your download of Realm Mobile Platform Professional Edition
 Realm.Sync.setAccessToken('INSERT_YOUR_REALM_ACCESS_TOKEN');
@@ -221,7 +221,7 @@ var change_notification_callback = function(change_event) {
 };
 
 //Create the admin user
-var admin_user = Realm.Sync.User.adminUser(REALM_ADMIN_TOKEN);
+var admin_user = Realm.Sync.User.adminUser(REALM_ADMIN_TOKEN, SERVER_URL);
 
 //Callback on Realm changes
 Realm.Sync.addListener(SERVER_URL, admin_user, NOTIFIER_PATH, 'change', change_notification_callback);
