@@ -4,7 +4,7 @@
 target 'Scanner' do
   use_frameworks!
 
-  pod 'RealmSwift'
+   pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :submodules => true   
 
 end
 
